@@ -15,3 +15,18 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         libunwind8-dev \
         systemtap-sdt-dev \
         libaudit-dev
+
+RUN cd /home/vscode/workspace \
+    && mkdir kernel && cd kernel \
+    && git clone --depth 1 git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git \
+    && cd tip/tools/perf \
+    && make \
+    && ln -s /home/vscode/workspace/kernel/tip/tools/perf/perf /usr/bin/perf
+
+RUN cd /home/vscode/workspace \
+    && git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git \
+    && export PATH=/home/vscode/workspace/depot_tools:$PATH \
+    && mkdir v8 && cd v8 \
+    && fetch v8 \
+    && cd v8 \
+    && build/install-build-deps.sh
