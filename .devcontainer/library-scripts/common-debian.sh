@@ -81,17 +81,10 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         lsof \
         htop \
         net-tools \
-        psmisc \
-        curl \
-        wget \
-        rsync \
-        ca-certificates \
         unzip \
         zip \
         nano \
-        vim-tiny \
         less \
-        jq \
         lsb-release \
         apt-transport-https \
         dialog \
@@ -105,7 +98,6 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         zlib1g \
         locales \
         sudo \
-        ncdu \
         man-db \
         strace"
 
